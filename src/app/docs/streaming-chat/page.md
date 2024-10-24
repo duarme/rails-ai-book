@@ -204,9 +204,7 @@ class MessagesController < ApplicationController
 
     GetAiResponse.perform_async(@message.chat_id)
 
-    respond_to do |format|
-      format.turbo_stream
-    end
+    respond_to(&:turbo_stream)
   end
 
   private
